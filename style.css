@@ -1,0 +1,131 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+     background: #e8ee91; 
+}
+ body.dark{
+    background: #30032b; 
+}
+
+.clock{
+    width: 300px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #e8ee91 url("../image/clock.png");
+    background-size: cover;
+    border: 4px solid #e8ee91;
+    border-radius: 50%;
+    box-shadow:  20px 20px 60px #c5ca7b,
+                -20px -20px 60px #ffffa7;
+}
+body.dark .clock{
+    background: #30032b url("../image/clock.png");
+    background-size: cover;
+    border: 4px solid #30032b;
+    box-shadow:  21px 21px 42px #20021d,
+             -21px -21px 42px #400439;
+}
+.clock::before{
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: rgb(88, 87, 87);
+    border-radius: 50%;
+    z-index: 100;
+}
+body.dark .clock::before{
+    background-color: rgb(222, 215, 215);
+}
+.clock .hour,
+.clock .minute,
+.clock .second
+{
+    position: absolute;
+}
+.hour, .hr{
+    width: 160px;
+    height: 160px;
+}
+.minute, .min{
+    width: 190px;
+    height: 190px;
+}
+.second, .sec{
+    width: 230px;
+    height: 230px;
+}
+.hr, .min, .sec{
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    border-radius: 50%;
+}
+.hr::before{
+    content: "";
+    position: relative;
+    width: 8px;
+    height: 80px;
+    background-color: rgb(219, 81, 81);
+    z-index: 10;
+    border: 6px 6px 0 0;
+}
+.min::before{
+    content: "";
+    position: relative;
+    width: 4px;
+    height: 90px;
+    background-color: #fff;
+    z-index: 11;
+    border: 6px 6px 0 0;
+}
+.sec::before{
+    content: "";
+    position: relative;
+    width: 2px;
+    height: 150px;
+    background-color: rgb(84, 145, 231);
+    z-index: 12;
+    border: 6px 6px 0 0;
+}
+body.dark .sec::before{
+    background-color: rgb(10, 241, 125);
+}
+.toggle{
+    position: absolute;
+    top: 30px;
+    right: 150px;
+    width: 20px;
+    height: 20px;
+    font-size: 18px;
+    border-radius: 50%;
+    background-color: #400439;
+    color: #400439;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    cursor: pointer;
+    display:flex;
+    align-items: center;
+}
+.toggle::before{
+    content: "Dark mode";
+    position: absolute;
+    left:25px;
+    white-space: nowrap;
+    font-size: 18px;
+}
+body.dark .toggle{
+    background-color: #ffffa7;
+    color: #ffffa7;
+}
+body.dark .toggle::before{
+    content:"Light mode";
+}
